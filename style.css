@@ -1,0 +1,1235 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+
+    --background: #f6f7fb;
+    --card: #ffffff;
+
+    --text: #171923;
+    --subtext: #858a99;
+
+    --border: #e7e9ef;
+
+    --primary: #171923;
+
+    --income: #19a974;
+    --expense: #ef5350;
+
+    --shadow:
+        0 10px 30px rgba(20, 25, 45, 0.07);
+
+}
+
+
+body.dark {
+
+    --background: #101116;
+    --card: #191a20;
+
+    --text: #f5f6fa;
+    --subtext: #999da9;
+
+    --border: #2a2c34;
+
+    --primary: #ffffff;
+
+    --shadow:
+        0 10px 35px rgba(0, 0, 0, 0.3);
+
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    background: var(--background);
+
+    color: var(--text);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Apple SD Gothic Neo",
+        "Noto Sans KR",
+        sans-serif;
+
+    padding-bottom: 100px;
+
+    transition: 0.2s;
+
+}
+
+
+button,
+input,
+select {
+
+    font-family: inherit;
+
+}
+
+
+button {
+
+    cursor: pointer;
+
+    border: none;
+
+}
+
+
+/* APP */
+
+.app {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 0 18px;
+
+}
+
+
+/* HEADER */
+
+.header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-top: 28px;
+
+    padding-bottom: 12px;
+
+}
+
+
+.brand h1 {
+
+    font-size: 26px;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+
+}
+
+
+.brand p {
+
+    margin-top: 5px;
+
+    font-size: 12px;
+
+    color: var(--subtext);
+
+}
+
+
+.theme-btn {
+
+    width: 43px;
+
+    height: 43px;
+
+    border-radius: 14px;
+
+    background: var(--card);
+
+    color: var(--text);
+
+    font-size: 19px;
+
+    box-shadow: var(--shadow);
+
+}
+
+
+/* MONTH */
+
+.month-selector {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    margin: 15px 0 20px;
+
+}
+
+
+.month-selector button {
+
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: var(--card);
+
+    color: var(--text);
+
+    font-size: 24px;
+
+    box-shadow: var(--shadow);
+
+}
+
+
+.month-selector h2 {
+
+    min-width: 110px;
+
+    text-align: center;
+
+    font-size: 18px;
+
+}
+
+
+/* BALANCE */
+
+.balance-card {
+
+    background: var(--primary);
+
+    color: var(--background);
+
+    border-radius: 25px;
+
+    padding: 25px;
+
+    box-shadow: var(--shadow);
+
+}
+
+
+.balance-card p {
+
+    font-size: 13px;
+
+    opacity: .6;
+
+}
+
+
+.balance-card h2 {
+
+    margin-top: 7px;
+
+    margin-bottom: 22px;
+
+    font-size: 33px;
+
+    letter-spacing: -1px;
+
+}
+
+
+.balance-info {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+}
+
+
+.balance-info span {
+
+    display: block;
+
+    font-size: 11px;
+
+    opacity: .6;
+
+    margin-bottom: 5px;
+
+}
+
+
+.balance-info strong {
+
+    font-size: 16px;
+
+}
+
+
+.income-text {
+
+    color: var(--income);
+
+}
+
+
+.expense-text {
+
+    color: var(--expense);
+
+}
+
+
+/* SUMMARY */
+
+.summary {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 13px;
+
+}
+
+
+.summary-card {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 18px;
+
+    box-shadow: var(--shadow);
+
+}
+
+
+.summary-card span {
+
+    display: block;
+
+    color: var(--subtext);
+
+    font-size: 11px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.summary-card strong {
+
+    font-size: 17px;
+
+}
+
+
+/* SECTION */
+
+.section {
+
+    margin-top: 28px;
+
+}
+
+
+.section-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+
+}
+
+
+.section-header h2 {
+
+    font-size: 18px;
+
+}
+
+
+.text-btn {
+
+    background: transparent;
+
+    color: var(--subtext);
+
+    font-size: 12px;
+
+}
+
+
+/* CARD */
+
+.card {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 22px;
+
+    box-shadow: var(--shadow);
+
+}
+
+
+/* TYPE */
+
+.add-card {
+
+    padding: 18px;
+
+}
+
+
+.type-selector {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    padding: 4px;
+
+    background: var(--background);
+
+    border-radius: 14px;
+
+    margin-bottom: 17px;
+
+}
+
+
+.type-btn {
+
+    padding: 12px;
+
+    border-radius: 11px;
+
+    background: transparent;
+
+    color: var(--subtext);
+
+    font-weight: 800;
+
+}
+
+
+.type-btn.active {
+
+    background: var(--primary);
+
+    color: var(--background);
+
+}
+
+
+/* AMOUNT */
+
+.amount-input {
+
+    display: flex;
+
+    align-items: center;
+
+    border-bottom: 1px solid var(--border);
+
+    padding-bottom: 14px;
+
+    margin-bottom: 17px;
+
+}
+
+
+.amount-input span {
+
+    font-size: 24px;
+
+    font-weight: 900;
+
+    margin-right: 5px;
+
+}
+
+
+.amount-input input {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+}
+
+
+.amount-input input::placeholder {
+
+    font-size: 18px;
+
+    color: #b5b8c0;
+
+}
+
+
+/* INPUT */
+
+.input-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+}
+
+
+.input-group {
+
+    margin-bottom: 13px;
+
+}
+
+
+.input-group label {
+
+    display: block;
+
+    font-size: 11px;
+
+    color: var(--subtext);
+
+    margin-bottom: 6px;
+
+}
+
+
+.input-group input,
+.input-group select {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--border);
+
+    background: var(--background);
+
+    color: var(--text);
+
+    outline: none;
+
+}
+
+
+/* SUBMIT */
+
+.submit-btn {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 13px;
+
+    background: var(--primary);
+
+    color: var(--background);
+
+    font-weight: 900;
+
+    margin-top: 2px;
+
+}
+
+
+/* FILTER */
+
+.filters {
+
+    display: flex;
+
+    gap: 7px;
+
+    overflow-x: auto;
+
+}
+
+
+.filter {
+
+    white-space: nowrap;
+
+    padding: 9px 13px;
+
+    border-radius: 11px;
+
+    background: var(--card);
+
+    color: var(--subtext);
+
+    border: 1px solid var(--border);
+
+    font-size: 11px;
+
+}
+
+
+.filter.active {
+
+    background: var(--primary);
+
+    color: var(--background);
+
+}
+
+
+/* SEARCH */
+
+.search-box {
+
+    margin-top: 10px;
+
+}
+
+
+.search-box input {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border-radius: 13px;
+
+    border: 1px solid var(--border);
+
+    background: var(--card);
+
+    color: var(--text);
+
+    outline: none;
+
+}
+
+
+/* TRANSACTIONS */
+
+.transaction-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 10px;
+
+}
+
+
+.transaction {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 14px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+}
+
+
+.transaction-icon {
+
+    width: 43px;
+
+    height: 43px;
+
+    border-radius: 13px;
+
+    background: var(--background);
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 19px;
+
+}
+
+
+.transaction-main {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+.transaction-main strong {
+
+    display: block;
+
+    font-size: 13px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+}
+
+
+.transaction-main span {
+
+    display: block;
+
+    color: var(--subtext);
+
+    font-size: 10px;
+
+    margin-top: 4px;
+
+}
+
+
+.transaction-amount {
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    white-space: nowrap;
+
+}
+
+
+.delete-btn {
+
+    background: transparent;
+
+    color: var(--subtext);
+
+    padding: 5px;
+
+}
+
+
+/* EMPTY */
+
+.empty {
+
+    text-align: center;
+
+    padding: 40px 10px;
+
+    color: var(--subtext);
+
+}
+
+
+.empty div {
+
+    font-size: 35px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.empty p {
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.empty span {
+
+    font-size: 11px;
+
+}
+
+
+/* STATISTICS */
+
+.statistics-card {
+
+    padding: 19px;
+
+}
+
+
+.statistics-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 12px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.chart-row {
+
+    margin-bottom: 16px;
+
+}
+
+
+.chart-label {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 11px;
+
+    margin-bottom: 6px;
+
+}
+
+
+.chart-background {
+
+    height: 8px;
+
+    border-radius: 20px;
+
+    background: var(--background);
+
+    overflow: hidden;
+
+}
+
+
+.chart-bar {
+
+    height: 100%;
+
+    background: var(--primary);
+
+    border-radius: 20px;
+
+}
+
+
+/* BUDGET */
+
+.budget-card {
+
+    padding: 19px;
+
+}
+
+
+.budget-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 12px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.progress {
+
+    height: 10px;
+
+    border-radius: 20px;
+
+    background: var(--background);
+
+    overflow: hidden;
+
+}
+
+
+.progress div {
+
+    height: 100%;
+
+    width: 0;
+
+    background: var(--primary);
+
+    border-radius: 20px;
+
+    transition: .3s;
+
+}
+
+
+.budget-input {
+
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 14px;
+
+}
+
+
+.budget-input input {
+
+    flex: 1;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--border);
+
+    background: var(--background);
+
+    color: var(--text);
+
+    outline: none;
+
+}
+
+
+.budget-input button {
+
+    padding: 12px 16px;
+
+    border-radius: 12px;
+
+    background: var(--primary);
+
+    color: var(--background);
+
+    font-weight: 800;
+
+}
+
+
+/* BOTTOM NAV */
+
+.bottom-nav {
+
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 12px;
+
+    transform: translateX(-50%);
+
+    width: min(520px, calc(100% - 24px));
+
+    height: 65px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-around;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.14);
+
+    z-index: 20;
+
+}
+
+
+.nav-btn {
+
+    background: transparent;
+
+    color: var(--subtext);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 3px;
+
+    font-size: 18px;
+
+}
+
+
+.nav-btn small {
+
+    font-size: 9px;
+
+}
+
+
+.add-button {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 16px;
+
+    background: var(--primary);
+
+    color: var(--background);
+
+    font-size: 28px;
+
+}
+
+
+/* MODAL */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.45);
+
+    display: none;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    z-index: 50;
+
+}
+
+
+.modal.show {
+
+    display: flex;
+
+}
+
+
+.modal-content {
+
+    width: min(520px, 100%);
+
+    background: var(--card);
+
+    border-radius: 25px 25px 0 0;
+
+    padding: 25px 18px 30px;
+
+}
+
+
+.modal-content h2 {
+
+    font-size: 19px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.modal-content p {
+
+    color: var(--subtext);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+}
+
+
+.modal-button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    margin-top: 10px;
+
+    font-weight: 800;
+
+}
+
+
+.modal-button.danger {
+
+    background: var(--expense);
+
+    color: white;
+
+}
+
+
+/* TOAST */
+
+.toast {
+
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 92px;
+
+    transform:
+        translateX(-50%)
+        translateY(15px);
+
+    background: #222;
+
+    color: white;
+
+    padding: 11px 17px;
+
+    border-radius: 12px;
+
+    font-size: 12px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: .25s;
+
+    z-index: 100;
+
+}
+
+
+.toast.show {
+
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .summary {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+
+    .summary-card:first-child {
+
+        grid-column: 1 / -1;
+
+    }
+
+
+    .input-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .balance-card h2 {
+
+        font-size: 29px;
+
+    }
+
+}
+
+
+/* DESKTOP */
+
+@media(min-width:800px){
+
+    .bottom-nav {
+
+        display: none;
+
+    }
+
+
+    body {
+
+        padding-bottom: 30px;
+
+    }
+
+
+    .modal {
+
+        align-items: center;
+
+    }
+
+
+    .modal-content {
+
+        border-radius: 25px;
+
+    }
+
+}
