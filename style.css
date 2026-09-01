@@ -1233,3 +1233,165 @@ button {
     }
 
 }
+/* =========================================
+   모바일 화면 최적화
+   ========================================= */
+
+/* 모든 요소의 크기 계산 안정화 */
+* {
+    box-sizing: border-box;
+}
+
+/* 기본 화면 */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* 앱 전체 */
+.app {
+    width: 100%;
+    max-width: 480px;
+    min-height: 100vh;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+/* 메인 콘텐츠 */
+main {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    /* 하단 네비게이션에 가리지 않도록 */
+    padding-bottom: 130px;
+}
+
+/* 모든 섹션 */
+section {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* 카드 */
+.card,
+.summary-card,
+.summary-grid > *,
+.form-card,
+.add-section {
+    max-width: 100%;
+}
+
+/* 카드 안쪽 요소 */
+.card *,
+.summary-card *,
+.form-card *,
+.add-section * {
+    max-width: 100%;
+}
+
+/* 입력창 */
+input,
+select,
+textarea,
+button {
+    max-width: 100%;
+    font-family: inherit;
+}
+
+/* 입력창이 화면 밖으로 나가지 않게 */
+input,
+select,
+textarea {
+    width: 100%;
+}
+
+/* 금액 입력 */
+.amount-input {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* 날짜 입력 */
+input[type="date"] {
+    width: 100%;
+    min-width: 0;
+}
+
+/* 버튼 */
+button {
+    min-width: 0;
+}
+
+/* 그리드가 화면 밖으로 나가지 않게 */
+.summary-grid {
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* 하단 네비게이션 */
+.bottom-nav,
+nav.bottom-nav {
+    position: fixed;
+    left: 50%;
+    bottom: 12px;
+
+    width: calc(100% - 24px);
+    max-width: 480px;
+
+    transform: translateX(-50%);
+
+    z-index: 9999;
+}
+
+/* 하단 네비 안의 요소가 튀어나가지 않게 */
+.bottom-nav > *,
+.bottom-nav button,
+.bottom-nav a {
+    min-width: 0;
+}
+
+/* + 버튼 */
+.bottom-nav .add-btn,
+.bottom-nav .plus-btn {
+    flex-shrink: 0;
+}
+
+/* 모바일 작은 화면 */
+@media (max-width: 390px) {
+
+    main {
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 125px;
+    }
+
+    .summary-grid {
+        gap: 10px;
+    }
+
+    .bottom-nav,
+    nav.bottom-nav {
+        width: calc(100% - 16px);
+        bottom: 8px;
+    }
+}
+
+/* 아주 작은 화면 */
+@media (max-width: 340px) {
+
+    main {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
