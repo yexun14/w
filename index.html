@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <title>MY MONEY</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div>
+        <h1>MY MONEY</h1>
+        <p>나의 스마트 가계부</p>
+    </div>
+
+    <button id="themeBtn" class="icon-btn">☾</button>
+</header>
+
+<main>
+
+    <!-- 월 선택 -->
+    <section class="month-selector">
+        <button id="prevMonth">‹</button>
+        <h2 id="currentMonth"></h2>
+        <button id="nextMonth">›</button>
+    </section>
+
+    <!-- 요약 -->
+    <section class="summary-grid">
+
+        <div class="summary-card balance">
+            <span>현재 잔액</span>
+            <strong id="balance">₩0</strong>
+        </div>
+
+        <div class="summary-card income">
+            <span>이번 달 수입</span>
+            <strong id="income">₩0</strong>
+        </div>
+
+        <div class="summary-card expense">
+            <span>이번 달 지출</span>
+            <strong id="expense">₩0</strong>
+        </div>
+
+    </section>
+
+    <!-- 빠른 추가 -->
+    <section class="add-section">
+
+        <div class="section-title">
+            <h2>내역 추가</h2>
+        </div>
+
+        <div class="type-buttons">
+            <button class="type-btn active" data-type="expense">
+                지출
+            </button>
+
+            <button class="type-btn" data-type="income">
+                수입
+            </button>
+        </div>
+
+        <form id="transactionForm">
+
+            <div class="amount-box">
+                <span>₩</span>
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="금액을 입력하세요"
+                    required
+                    min="1"
+                >
+            </div>
+
+            <div class="input-row">
+
+                <div class="input-group">
+                    <label>카테고리</label>
+
+                    <select id="category">
+                        <option value="식비">🍚 식비</option>
+                        <option value="교통">🚇 교통</option>
+                        <option value="쇼핑">🛍️ 쇼핑</option>
+                        <option value="여가">🎮 여가</option>
+                        <option value="교육">📚 교육</option>
+                        <option value="생활">🏠 생활</option>
+                        <option value="용돈">💰 용돈</option>
+                        <option value="기타">📦 기타</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>날짜</label>
+                    <input type="date" id="date" required>
+                </div>
+
+            </div>
+
+            <div class="input-group">
+                <label>메모</label>
+                <input
+                    type="text"
+                    id="memo"
+                    placeholder="예: 친구와 점심"
+                    maxlength="40"
+                >
+            </div>
+
+            <button class="submit-btn" type="submit">
+                + 내역 추가하기
+            </button>
+
+        </form>
+    </section>
+
+    <!-- 내역 -->
+    <section class="history-section">
+
+        <div class="section-title">
+            <h2>최근 내역</h2>
+            <button id="deleteAllBtn" class="small-btn">
+                전체 삭제
+            </button>
+        </div>
+
+        <div id="transactionList" class="transaction-list"></div>
+
+        <div id="emptyMessage" class="empty">
+            <div>💸</div>
+            <p>아직 내역이 없습니다.</p>
+            <span>수입이나 지출을 추가해보세요.</span>
+        </div>
+
+    </section>
+
+    <!-- 통계 -->
+    <section class="stats-section">
+
+        <div class="section-title">
+            <h2>이번 달 통계</h2>
+        </div>
+
+        <div class="chart-box">
+
+            <div class="chart-title">
+                <span>카테고리별 지출</span>
+                <strong id="totalExpenseText">₩0</strong>
+            </div>
+
+            <div id="categoryChart"></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- 모바일 하단 네비 -->
+<nav class="bottom-nav">
+
+    <button class="nav-item active">
+        <span>🏠</span>
+        <small>홈</small>
+    </button>
+
+    <button class="nav-item" onclick="scrollToSection('history-section')">
+        <span>📋</span>
+        <small>내역</small>
+    </button>
+
+    <button class="nav-add" onclick="focusAmount()">
+        +
+    </button>
+
+    <button class="nav-item" onclick="scrollToSection('stats-section')">
+        <span>📊</span>
+        <small>통계</small>
+    </button>
+
+    <button class="nav-item">
+        <span>⚙️</span>
+        <small>설정</small>
+    </button>
+
+</nav>
+
+<script src="script.js"></script>
+
+</body>
+</html>
