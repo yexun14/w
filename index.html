@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6f7fb">
+
+    <title>MY MONEY - 가계부</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="brand">
+            <h1>MY MONEY</h1>
+            <p>나의 스마트 가계부</p>
+        </div>
+
+        <button id="themeBtn" class="theme-btn">
+            ☾
+        </button>
+
+    </header>
+
+
+    <!-- MONTH -->
+    <section class="month-selector">
+
+        <button id="prevMonth">‹</button>
+
+        <h2 id="monthTitle">
+            2026년 9월
+        </h2>
+
+        <button id="nextMonth">›</button>
+
+    </section>
+
+
+    <!-- BALANCE -->
+    <section class="balance-card">
+
+        <p>이번 달 잔액</p>
+
+        <h2 id="balance">
+            ₩0
+        </h2>
+
+        <div class="balance-info">
+
+            <div>
+                <span>수입</span>
+                <strong id="income">
+                    ₩0
+                </strong>
+            </div>
+
+            <div>
+                <span>지출</span>
+                <strong id="expense">
+                    ₩0
+                </strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SUMMARY -->
+    <section class="summary">
+
+        <div class="summary-card">
+
+            <span>이번 달 지출</span>
+
+            <strong id="summaryExpense">
+                ₩0
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <span>거래 건수</span>
+
+            <strong id="transactionCount">
+                0건
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <span>일 평균 지출</span>
+
+            <strong id="averageExpense">
+                ₩0
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- ADD TRANSACTION -->
+    <section class="section">
+
+        <div class="section-header">
+            <h2>내역 추가</h2>
+        </div>
+
+
+        <div class="card add-card">
+
+            <!-- TYPE -->
+            <div class="type-selector">
+
+                <button
+                    class="type-btn active"
+                    data-type="expense"
+                >
+                    지출
+                </button>
+
+                <button
+                    class="type-btn"
+                    data-type="income"
+                >
+                    수입
+                </button>
+
+            </div>
+
+
+            <form id="transactionForm">
+
+                <!-- AMOUNT -->
+
+                <div class="amount-input">
+
+                    <span>₩</span>
+
+                    <input
+                        id="amount"
+                        type="number"
+                        min="1"
+                        placeholder="금액을 입력하세요"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- CATEGORY + DATE -->
+
+                <div class="input-grid">
+
+                    <div class="input-group">
+
+                        <label>
+                            카테고리
+                        </label>
+
+                        <select id="category">
+
+                            <option value="식비">
+                                🍚 식비
+                            </option>
+
+                            <option value="교통">
+                                🚇 교통
+                            </option>
+
+                            <option value="쇼핑">
+                                🛍️ 쇼핑
+                            </option>
+
+                            <option value="여가">
+                                🎮 여가
+                            </option>
+
+                            <option value="교육">
+                                📚 교육
+                            </option>
+
+                            <option value="생활">
+                                🏠 생활
+                            </option>
+
+                            <option value="의료">
+                                💊 의료
+                            </option>
+
+                            <option value="구독">
+                                📱 구독
+                            </option>
+
+                            <option value="용돈">
+                                💰 용돈
+                            </option>
+
+                            <option value="기타">
+                                📦 기타
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            날짜
+                        </label>
+
+                        <input
+                            id="date"
+                            type="date"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- MEMO -->
+
+                <div class="input-group">
+
+                    <label>
+                        메모
+                    </label>
+
+                    <input
+                        id="memo"
+                        type="text"
+                        maxlength="50"
+                        placeholder="예: 친구와 점심"
+                    >
+
+                </div>
+
+
+                <button
+                    class="submit-btn"
+                    type="submit"
+                >
+                    + 내역 추가하기
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- HISTORY -->
+    <section
+        class="section"
+        id="history"
+    >
+
+        <div class="section-header">
+
+            <h2>
+                거래 내역
+            </h2>
+
+            <button
+                id="deleteMonth"
+                class="text-btn"
+            >
+                현재 달 삭제
+            </button>
+
+        </div>
+
+
+        <!-- FILTER -->
+
+        <div class="filters">
+
+            <button
+                class="filter active"
+                data-filter="all"
+            >
+                전체
+            </button>
+
+            <button
+                class="filter"
+                data-filter="expense"
+            >
+                지출
+            </button>
+
+            <button
+                class="filter"
+                data-filter="income"
+            >
+                수입
+            </button>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <input
+                id="search"
+                type="search"
+                placeholder="🔎 내역 검색"
+            >
+
+        </div>
+
+
+        <!-- LIST -->
+
+        <div
+            id="transactionList"
+            class="transaction-list"
+        ></div>
+
+
+        <div
+            id="empty"
+            class="empty"
+        >
+
+            <div>
+                💸
+            </div>
+
+            <p>
+                아직 내역이 없습니다.
+            </p>
+
+            <span>
+                수입이나 지출을 추가해보세요.
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATISTICS -->
+    <section
+        class="section"
+        id="statistics"
+    >
+
+        <div class="section-header">
+
+            <h2>
+                지출 통계
+            </h2>
+
+        </div>
+
+
+        <div class="card statistics-card">
+
+            <div class="statistics-header">
+
+                <span>
+                    카테고리별 지출
+                </span>
+
+                <strong id="chartTotal">
+                    ₩0
+                </strong>
+
+            </div>
+
+
+            <div
+                id="chart"
+                class="chart"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BUDGET -->
+    <section class="section">
+
+        <div class="section-header">
+
+            <h2>
+                월 예산
+            </h2>
+
+        </div>
+
+
+        <div class="card budget-card">
+
+            <div class="budget-info">
+
+                <span id="budgetUsed">
+                    ₩0 사용
+                </span>
+
+                <strong id="budgetPercent">
+                    예산 미설정
+                </strong>
+
+            </div>
+
+
+            <div class="progress">
+
+                <div
+                    id="progressBar"
+                ></div>
+
+            </div>
+
+
+            <div class="budget-input">
+
+                <input
+                    id="budget"
+                    type="number"
+                    placeholder="이번 달 예산"
+                >
+
+                <button
+                    id="saveBudget"
+                >
+                    저장
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- MOBILE NAV -->
+
+<nav class="bottom-nav">
+
+    <button
+        class="nav-btn"
+        data-target="top"
+    >
+        🏠
+        <small>
+            홈
+        </small>
+    </button>
+
+
+    <button
+        class="nav-btn"
+        data-target="history"
+    >
+        📋
+        <small>
+            내역
+        </small>
+    </button>
+
+
+    <button
+        class="add-button"
+        id="quickAdd"
+    >
+        +
+    </button>
+
+
+    <button
+        class="nav-btn"
+        data-target="statistics"
+    >
+        📊
+        <small>
+            통계
+        </small>
+    </button>
+
+
+    <button
+        class="nav-btn"
+        id="settings"
+    >
+        ⚙️
+        <small>
+            설정
+        </small>
+    </button>
+
+</nav>
+
+
+<!-- SETTINGS MODAL -->
+
+<div
+    id="modal"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+        <h2>
+            데이터 관리
+        </h2>
+
+        <p>
+            가계부 데이터는 현재 사용 중인
+            브라우저에 저장됩니다.
+        </p>
+
+
+        <button
+            id="exportCSV"
+            class="modal-button"
+        >
+            📤 CSV 내보내기
+        </button>
+
+
+        <button
+            id="resetData"
+            class="modal-button danger"
+        >
+            🗑️ 모든 데이터 삭제
+        </button>
+
+
+        <button
+            id="closeModal"
+            class="modal-button"
+        >
+            닫기
+        </button>
+
+    </div>
+
+</div>
+
+
+<div
+    id="toast"
+    class="toast"
+></div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
